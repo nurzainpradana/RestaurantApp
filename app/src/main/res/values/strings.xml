@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">RestaurantApp</string>
+    <string name="meja_1_text">Meja 1</string>
+    <string name="pilih_menu_text">Silahkan Pilih Menu</string>
+    <string name="pesanan_anda_text">Pesanan Anda</string>
+    <string name="masukan_menu">Nama Menu</string>
+    <string name="harga_text">Harga</string>
+    <string name="jumlah_text">Jumlah</string>
+    <string name="masukkan_menu_text">Masukkan Menu Makanan</string>
+    <string name="hitung_text">Hitung</string>
 </resources>
