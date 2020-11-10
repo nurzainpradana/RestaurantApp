@@ -3,14 +3,28 @@ package com.zainpradana.restaurantapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.databinding.DataBindingUtil
+import com.zainpradana.restaurantapp.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    var nomorMeja: Int = 0
+    lateinit var binding: ActivityMainBinding
+
+    private var total: Int? = 0
+    private var nomorMeja: Int = 0
+
+    private val productSatu : Product = Product()
+    private val productDua : Product = Product()
+    private val productTiga : Product = Product()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.productSatu = productSatu
+        binding.productDua = productDua
+        binding.productTiga = productTiga
+        binding.total = total
+
     }
 
 
@@ -29,92 +43,99 @@ class MainActivity : AppCompatActivity() {
 
     fun pesan(nomorMejaKlik: Int){
         // sembunyikan layout pilih meja & tampilkan layout menu
-        layout_pilih_meja.visibility = View.GONE
-        layout_menu.visibility = View.VISIBLE
+        binding.apply {
+            layoutPilihMeja.visibility = View.GONE
+            layoutMenu.visibility = View.VISIBLE
+        }
 
         // Simpan Nomor Meja Pesanan
         nomorMeja = nomorMejaKlik
-
-        // Tampil Nomor Meja Ke TextView
-        tv_pesanan_meja.text = "Pesanan Meja $nomorMeja"
+        binding.tvPesananMeja.text = "Meja - $nomorMeja"
+        binding.invalidateAll()
     }
 
     fun hitung(view: View) {
         // sembunyikan layout menu & tampilkan layout hitung
-        layout_menu.visibility = View.GONE
-        layout_hitung.visibility = View.VISIBLE
+        binding.apply {
+            layoutMenu.visibility = View.GONE
+            layoutHitung.visibility = View.VISIBLE
+            tvPesananMejaNomor.text = "Meja $nomorMeja"
 
-        tv_pesanan_meja_nomor.text = "Meja $nomorMeja"
+            // Mengambil data dari layout menu
+            if (etNamaMenuSatu.text.toString() != "" || etHargaMenuSatu.text.toString() != "" || etJumlahMenuSatu.text.toString() != "") {
+                productSatu?.namaMenu = etNamaMenuSatu.text.toString()
+                productSatu?.hargaMenu = etHargaMenuSatu.text.toString().toInt()
+                productSatu?.jumlahMenu = etJumlahMenuSatu.text.toString().toInt()
 
-        var total = 0
+                total = total?.plus(productSatu?.total!!)
 
-        // Mengambil data dari layout menu
-        if (et_nama_menu_satu.text.toString() != "" || et_harga_menu_satu.text.toString() != "" || et_jumlah_menu_satu.text.toString() != ""){
-            var namaMenuSatu = et_nama_menu_satu.text.toString()
-            var hargaMenuSatu = et_harga_menu_satu.text.toString().toInt()
-            var jumlahMenuSatu = et_jumlah_menu_satu.text.toString().toInt()
-            var subTotalMenuSatu: Int = hargaMenuSatu * jumlahMenuSatu
-            total += subTotalMenuSatu
+                // Menampilkan layout menu 1
+                llMenuSatu.visibility = View.VISIBLE
+            } else {
+                llMenuSatu.visibility = View.GONE
+            }
 
-            // Menampilkan layout menu 1
-            ll_menu_satu.visibility = View.VISIBLE
+            if (etNamaMenuDua.text.toString() != "" || etHargaMenuDua.text.toString() != "" || etJumlahMenuTiga.text.toString() != "") {
+                productDua?.namaMenu = etNamaMenuDua.text.toString()
+                productDua?.hargaMenu = etHargaMenuDua.text.toString().toInt()
+                productDua?.jumlahMenu = etJumlahMenuDua.text.toString().toInt()
 
-            // Menampilkan Nama Menu 1 dan subtotal menu 1
-            tv_nama_menu_satu.text = namaMenuSatu
-            tv_subtotal_menu_satu.text = subTotalMenuSatu.toString()
-        } else {
-            ll_menu_satu.visibility = View.GONE
+                total = total?.plus(productDua?.total!!)
+
+                // Menampilkan layout menu 1
+                llMenuDua.visibility = View.VISIBLE
+            } else {
+                llMenuDua.visibility = View.GONE
+            }
+
+            if (etNamaMenuTiga.text.toString() != "" || etHargaMenuTiga.text.toString() != "" || etJumlahMenuTiga.text.toString() != "") {
+                productTiga?.namaMenu = etNamaMenuTiga.text.toString()
+                productTiga?.hargaMenu = etHargaMenuTiga.text.toString().toInt()
+                productTiga?.jumlahMenu = etJumlahMenuTiga.text.toString().toInt()
+
+                total = total?.plus(productTiga?.total!!)
+
+                // Menampilkan layout menu 1
+                llMenuTiga.visibility = View.VISIBLE
+            } else {
+                llMenuTiga.visibility = View.GONE
+            }
+
+            if (total != 0) {
+                llTotal.visibility = View.VISIBLE
+            } else {
+                llTotal.visibility = View.GONE
+            }
+            invalidateAll()
         }
-
-        if (et_nama_menu_dua.text.toString() != "" || et_harga_menu_dua.text.toString() != "" || et_jumlah_menu_dua.text.toString() != ""){
-            var namaMenuDua = et_nama_menu_dua.text.toString()
-            var hargaMenuDua = et_harga_menu_dua.text.toString().toInt()
-            var jumlahMenuDua = et_jumlah_menu_dua.text.toString().toInt()
-            var subTotalMenuDua: Int = hargaMenuDua * jumlahMenuDua
-            total += subTotalMenuDua
-
-            // Menampilkan layout menu 1
-            ll_menu_dua.visibility = View.VISIBLE
-
-            // Menampilkan Nama Menu 1 dan subtotal menu 1
-            tv_nama_menu_dua.text = namaMenuDua
-            tv_subtotal_menu_dua.text = subTotalMenuDua.toString()
-        } else {
-            ll_menu_dua.visibility = View.GONE
-        }
-
-        if (et_nama_menu_tiga.text.toString() != "" || et_harga_menu_tiga.text.toString() != "" || et_jumlah_menu_tiga.text.toString() != ""){
-            var namaMenuTiga = et_nama_menu_tiga.text.toString()
-            var hargaMenuTiga = et_harga_menu_tiga.text.toString().toInt()
-            var jumlahMenuTiga = et_jumlah_menu_tiga.text.toString().toInt()
-            var subTotalMenuTiga: Int = hargaMenuTiga * jumlahMenuTiga
-            total += subTotalMenuTiga
-
-            // Menampilkan layout menu 1
-            ll_menu_tiga.visibility = View.VISIBLE
-
-            // Menampilkan Nama Menu 1 dan subtotal menu 1
-            tv_nama_menu_tiga.text = namaMenuTiga
-            tv_subtotal_menu_tiga.text = subTotalMenuTiga.toString()
-        } else {
-            ll_menu_tiga.visibility = View.GONE
-        }
-
-        if (total > 0){
-            ll_total.visibility = View.VISIBLE
-            tv_total.text = total.toString()
-        } else {
-            ll_total.visibility = View.GONE
-        }
-
     }
 
     fun backToPilihMeja(view: View) {
-        layout_hitung.visibility = View.GONE
-        layout_pilih_meja.visibility = View.VISIBLE
+        binding.apply {
+            layoutHitung.visibility = View.GONE
+            layoutPilihMeja.visibility = View.VISIBLE
+
+            etNamaMenuSatu.text.clear()
+            etHargaMenuSatu.text.clear()
+            etJumlahMenuSatu.text.clear()
+
+            etNamaMenuDua.text.clear()
+            etHargaMenuDua.text.clear()
+            etJumlahMenuDua.text.clear()
+
+            etNamaMenuTiga.text.clear()
+            etHargaMenuTiga.text.clear()
+            etJumlahMenuTiga.text.clear()
+
+            total = 0
+        }
     }
     fun backToMenu(view: View) {
-        layout_hitung.visibility = View.GONE
-        layout_menu.visibility = View.VISIBLE
+        binding.apply {
+            layoutHitung.visibility = View.GONE
+            layoutMenu.visibility = View.VISIBLE
+
+            total = 0
+        }
     }
 }
