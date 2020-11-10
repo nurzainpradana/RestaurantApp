@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 productSatu?.hargaMenu = etHargaMenuSatu.text.toString().toInt()
                 productSatu?.jumlahMenu = etJumlahMenuSatu.text.toString().toInt()
 
-                total = total?.plus(productSatu?.total!!)
+                total = total?.plus(productSatu?.subtotal!!)
 
                 // Menampilkan layout menu 1
                 llMenuSatu.visibility = View.VISIBLE
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
                 productDua?.hargaMenu = etHargaMenuDua.text.toString().toInt()
                 productDua?.jumlahMenu = etJumlahMenuDua.text.toString().toInt()
 
-                total = total?.plus(productDua?.total!!)
+                total = total?.plus(productDua?.subtotal!!)
 
                 // Menampilkan layout menu 1
                 llMenuDua.visibility = View.VISIBLE
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                 productTiga?.hargaMenu = etHargaMenuTiga.text.toString().toInt()
                 productTiga?.jumlahMenu = etJumlahMenuTiga.text.toString().toInt()
 
-                total = total?.plus(productTiga?.total!!)
+                total = total?.plus(productTiga?.subtotal!!)
 
                 // Menampilkan layout menu 1
                 llMenuTiga.visibility = View.VISIBLE
