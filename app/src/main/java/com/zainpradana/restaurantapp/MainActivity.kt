@@ -46,12 +46,13 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             layoutPilihMeja.visibility = View.GONE
             layoutMenu.visibility = View.VISIBLE
-        }
 
-        // Simpan Nomor Meja Pesanan
-        nomorMeja = nomorMejaKlik
-        binding.tvPesananMeja.text = "Meja - $nomorMeja"
-        binding.invalidateAll()
+
+            // Simpan Nomor Meja Pesanan
+            nomorMeja = nomorMejaKlik
+            tvPesananMeja.text = "Meja - $nomorMeja"
+            invalidateAll()
+        }
     }
 
     fun hitung(view: View) {
@@ -67,7 +68,8 @@ class MainActivity : AppCompatActivity() {
                 productSatu?.hargaMenu = etHargaMenuSatu.text.toString().toInt()
                 productSatu?.jumlahMenu = etJumlahMenuSatu.text.toString().toInt()
 
-                total = total?.plus(productSatu?.subtotal!!)
+                total = total?.
+                plus(productSatu?.subtotal!!)
 
                 // Menampilkan layout menu 1
                 llMenuSatu.visibility = View.VISIBLE
