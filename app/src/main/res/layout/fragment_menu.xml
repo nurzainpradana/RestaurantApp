@@ -1,14 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MenuFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+    </data>
+
+    <LinearLayout
+        tools:context=".MenuFragment"
+        android:id="@+id/layout_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:padding="24dp">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/masukkan_menu_text"
+            android:layout_marginTop="150dp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tv_pesanan_meja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            tools:text="Pesanan Meja - " />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_nama_menu_satu"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:hint="@string/masukan_menu" />
+
+            <EditText
+                android:id="@+id/et_harga_menu_satu"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/harga_text" />
+
+            <EditText
+                android:id="@+id/et_jumlah_menu_satu"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/jumlah_text" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_nama_menu_dua"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:hint="@string/masukan_menu" />
+
+            <EditText
+                android:id="@+id/et_harga_menu_dua"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/harga_text" />
+
+            <EditText
+                android:id="@+id/et_jumlah_menu_dua"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/jumlah_text" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_nama_menu_tiga"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:hint="@string/masukan_menu" />
+
+            <EditText
+                android:id="@+id/et_harga_menu_tiga"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/harga_text" />
+
+            <EditText
+                android:id="@+id/et_jumlah_menu_tiga"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/jumlah_text" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/hitung_text" />
+    </LinearLayout>
+</layout>
