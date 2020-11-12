@@ -10,4 +10,8 @@
     <string name="hitung_text">Hitung</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="meja_2_text">Meja 2</string>
+    <string name="meja_3_text">Meja 3</string>
+    <string name="meja_4_text">Meja 4</string>
+    <string name="pilih_meja_text">Pilih Meja</string>
 </resources>

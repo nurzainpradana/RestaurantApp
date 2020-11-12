@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".PilihMejaFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_pilih_meja"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:padding="24dp"
+        android:visibility="visible"
+        tools:context=".PilihMejaFragment">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pilih_meja_text"
+            android:layout_marginTop="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_meja_satu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:onClick="pesanMejaSatu"
+            android:text="@string/meja_1_text"
+            app:layout_constraintEnd_toStartOf="@+id/btn_meja_dua"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/btn_meja_dua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="pesanMejaDua"
+            android:text="@string/meja_2_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_meja_satu"
+            app:layout_constraintTop_toTopOf="@+id/btn_meja_satu" />
+
+        <Button
+            android:id="@+id/btn_meja_tiga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:onClick="pesanMejaTiga"
+            android:text="@string/meja_3_text"
+            app:layout_constraintEnd_toStartOf="@+id/btn_meja_empat"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_meja_satu" />
+
+        <Button
+            android:id="@+id/btn_meja_empat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="pesanMejaEmpat"
+            android:text="@string/meja_4_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_meja_tiga"
+            app:layout_constraintTop_toTopOf="@+id/btn_meja_tiga" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
