@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="nomorMeja"
+            type="String" />
     </data>
 
     <LinearLayout
@@ -27,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            tools:text="Pesanan Meja - " />
+            tools:text="@{nomorMeja}" />
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -22,19 +22,19 @@ class PilihMejaFragment : Fragment() {
 
         binding.btnMejaSatu.setOnClickListener {
             view : View ->
-            view.findNavController().navigate(PilihMejaFragmentDirections.actionPilihMejaFragmentToMenuFragment(1))
+            view.findNavController().navigate(PilihMejaFragmentDirections.actionPilihMejaFragmentToMenuFragment("Meja 1"))
         }
         binding.btnMejaDua.setOnClickListener {
             view : View ->
-            view.findNavController().navigate(PilihMejaFragmentDirections.actionPilihMejaFragmentToMenuFragment(2))
+            view.findNavController().navigate(PilihMejaFragmentDirections.actionPilihMejaFragmentToMenuFragment("Meja 2"))
         }
         binding.btnMejaTiga.setOnClickListener {
             view : View ->
-            view.findNavController().navigate(PilihMejaFragmentDirections.actionPilihMejaFragmentToMenuFragment(3))
+            view.findNavController().navigate(PilihMejaFragmentDirections.actionPilihMejaFragmentToMenuFragment("Meja 3"))
         }
         binding.btnMejaEmpat.setOnClickListener {
             view : View ->
-            view.findNavController().navigate(PilihMejaFragmentDirections.actionPilihMejaFragmentToMenuFragment(4))
+            view.findNavController().navigate(PilihMejaFragmentDirections.actionPilihMejaFragmentToMenuFragment("Meja 4"))
         }
 
         return binding.root

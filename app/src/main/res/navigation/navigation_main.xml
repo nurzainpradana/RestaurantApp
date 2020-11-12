@@ -24,7 +24,7 @@
             app:destination="@id/hitungFragment" />
         <argument
             android:name="nomor_meja"
-            app:argType="integer" />
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/hitungFragment"
@@ -53,5 +53,8 @@
             android:name="product3"
             app:argType="com.zainpradana.restaurantapp.Product"
             app:nullable="true" />
+        <argument
+            android:name="nomorMeja"
+            app:argType="string" />
     </fragment>
 </navigation>
