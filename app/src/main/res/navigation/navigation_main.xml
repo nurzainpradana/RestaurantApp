@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_menuFragment_to_hitungFragment"
             app:destination="@id/hitungFragment" />
+        <argument
+            android:name="nomor_meja"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/hitungFragment"
@@ -38,5 +41,17 @@
             app:destination="@id/pilihMejaFragment"
             app:popUpTo="@id/pilihMejaFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="product1"
+            app:argType="com.zainpradana.restaurantapp.Product"
+            app:nullable="true" />
+        <argument
+            android:name="product2"
+            app:argType="com.zainpradana.restaurantapp.Product"
+            app:nullable="true" />
+        <argument
+            android:name="product3"
+            app:argType="com.zainpradana.restaurantapp.Product"
+            app:nullable="true" />
     </fragment>
 </navigation>
