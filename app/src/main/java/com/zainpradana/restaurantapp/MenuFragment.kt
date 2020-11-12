@@ -15,42 +15,50 @@ class MenuFragment : Fragment() {
     lateinit var productSatu: Product
     lateinit var productDua: Product
     lateinit var productTiga: Product
+    private var total = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_menu, container, false)
         binding.apply {
-            binding = DataBindingUtil.inflate(inflater, R.layout.fragment_menu, container, false)
-
             val args = MenuFragmentArgs.fromBundle(requireArguments())
             nomorMeja = args.nomorMeja
 
             btnHitung.setOnClickListener { view : View ->
                 ambilData(binding)
-                view.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToHitungFragment(productSatu, productDua, productTiga, nomorMeja))
+                view.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToHitungFragment(productSatu, productDua, productTiga, args.nomorMeja, total))
             }
             return binding.root
         }
     }
 
     private fun ambilData(binding: FragmentMenuBinding) {
+        total = 0
+        productSatu = Product()
+        productDua = Product()
+        productTiga = Product()
+
         binding.apply {
-            if (etNamaMenuSatu.text.isNotEmpty() || etJumlahMenuSatu.text.isNotEmpty() || etHargaMenuSatu.text.isNotEmpty()) {
+            if (etNamaMenuSatu.text.toString() != "" || etJumlahMenuSatu.text.toString() != "" || etHargaMenuSatu.text.toString() != "" ) {
                 productSatu.namaMenu = etNamaMenuSatu.text.toString()
                 productSatu.hargaMenu = etHargaMenuSatu.text.toString().toInt()
                 productSatu.jumlahMenu = etJumlahMenuSatu.text.toString().toInt()
+                total += productSatu.subtotal
             }
-            if (etNamaMenuDua.text.isNotEmpty() || etJumlahMenuDua.text.isNotEmpty() || etHargaMenuDua.text.isNotEmpty()) {
+            if (etNamaMenuDua.text.toString() != "" || etJumlahMenuDua.text.toString() != "" || etHargaMenuDua.text.toString() != "" ) {
                 productDua.namaMenu = etNamaMenuDua.text.toString()
                 productDua.hargaMenu = etHargaMenuDua.text.toString().toInt()
                 productDua.jumlahMenu = etJumlahMenuDua.text.toString().toInt()
+                total += productDua.subtotal
             }
-            if (etNamaMenuTiga.text.isNotEmpty() || etJumlahMenuTiga.text.isNotEmpty() || etHargaMenuTiga.text.isNotEmpty()) {
+            if (etNamaMenuTiga.text.toString() != "" || etJumlahMenuTiga.text.toString() != ""  || etHargaMenuTiga.text.toString() != "" ) {
                 productTiga.namaMenu = etNamaMenuTiga.text.toString()
                 productTiga.hargaMenu = etHargaMenuTiga.text.toString().toInt()
                 productTiga.jumlahMenu = etJumlahMenuTiga.text.toString().toInt()
+                total += productTiga.subtotal
             }
         }
     }

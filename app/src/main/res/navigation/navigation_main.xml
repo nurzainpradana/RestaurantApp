@@ -43,18 +43,18 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="product1"
-            app:argType="com.zainpradana.restaurantapp.Product"
-            app:nullable="true" />
+            app:argType="com.zainpradana.restaurantapp.Product" />
         <argument
             android:name="product2"
-            app:argType="com.zainpradana.restaurantapp.Product"
-            app:nullable="true" />
+            app:argType="com.zainpradana.restaurantapp.Product" />
         <argument
             android:name="product3"
-            app:argType="com.zainpradana.restaurantapp.Product"
-            app:nullable="true" />
+            app:argType="com.zainpradana.restaurantapp.Product" />
         <argument
             android:name="nomorMeja"
             app:argType="string" />
+        <argument
+            android:name="total"
+            app:argType="integer" />
     </fragment>
 </navigation>
