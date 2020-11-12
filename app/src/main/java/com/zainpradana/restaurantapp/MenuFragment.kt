@@ -42,19 +42,19 @@ class MenuFragment : Fragment() {
         productTiga = Product()
 
         binding.apply {
-            if (etNamaMenuSatu.text.toString() != "" || etJumlahMenuSatu.text.toString() != "" || etHargaMenuSatu.text.toString() != "" ) {
+            if (etNamaMenuSatu.text.toString() != "" && etJumlahMenuSatu.text.toString() != "" && etHargaMenuSatu.text.toString() != "" ) {
                 productSatu.namaMenu = etNamaMenuSatu.text.toString()
                 productSatu.hargaMenu = etHargaMenuSatu.text.toString().toInt()
                 productSatu.jumlahMenu = etJumlahMenuSatu.text.toString().toInt()
                 total += productSatu.subtotal
             }
-            if (etNamaMenuDua.text.toString() != "" || etJumlahMenuDua.text.toString() != "" || etHargaMenuDua.text.toString() != "" ) {
+            if (etNamaMenuDua.text.toString() != "" && etJumlahMenuDua.text.toString() != "" && etHargaMenuDua.text.toString() != "" ) {
                 productDua.namaMenu = etNamaMenuDua.text.toString()
                 productDua.hargaMenu = etHargaMenuDua.text.toString().toInt()
                 productDua.jumlahMenu = etJumlahMenuDua.text.toString().toInt()
                 total += productDua.subtotal
             }
-            if (etNamaMenuTiga.text.toString() != "" || etJumlahMenuTiga.text.toString() != ""  || etHargaMenuTiga.text.toString() != "" ) {
+            if (etNamaMenuTiga.text.toString() != "" && etJumlahMenuTiga.text.toString() != ""  && etHargaMenuTiga.text.toString() != "" ) {
                 productTiga.namaMenu = etNamaMenuTiga.text.toString()
                 productTiga.hargaMenu = etHargaMenuTiga.text.toString().toInt()
                 productTiga.jumlahMenu = etJumlahMenuTiga.text.toString().toInt()

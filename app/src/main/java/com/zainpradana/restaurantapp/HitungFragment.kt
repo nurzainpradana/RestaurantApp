@@ -27,8 +27,30 @@ class HitungFragment : Fragment() {
             total = args.total
             nomorMeja = args.nomorMeja
 
+            if (args.product1.namaMenu == ""){
+                llMenuSatu.visibility = View.GONE
+            } else {
+                llMenuSatu.visibility = View.VISIBLE
+            }
+
+            if (args.product2.namaMenu == ""){
+                llMenuDua.visibility = View.GONE
+            } else {
+                llMenuDua.visibility = View.VISIBLE
+            }
+
+            if (args.product3.namaMenu == ""){
+                llMenuTiga.visibility = View.GONE
+            } else {
+                llMenuTiga.visibility = View.VISIBLE
+            }
+
+            if (args.total == 0){
+                llTotal.visibility = View.GONE
+            } else {
+                llTotal.visibility = View.VISIBLE
+            }
         }
-        Toast.makeText(context, args.product1.namaMenu.toString(), Toast.LENGTH_SHORT).show()
         return binding.root
     }
 }
