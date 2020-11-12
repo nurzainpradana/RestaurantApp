@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/pilihMejaFragment">
+
+    <fragment
+        android:id="@+id/pilihMejaFragment"
+        android:name="com.zainpradana.restaurantapp.PilihMejaFragment"
+        android:label="PilihMejaFragment"
+        tools:layout="@layout/fragment_pilih_meja">
+        <action
+            android:id="@+id/action_pilihMejaFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.zainpradana.restaurantapp.MenuFragment"
+        android:label="MenuFragment"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menuFragment_to_hitungFragment"
+            app:destination="@id/hitungFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hitungFragment"
+        android:name="com.zainpradana.restaurantapp.HitungFragment"
+        android:label="fragment_hitung"
+        tools:layout="@layout/fragment_hitung" >
+        <action
+            android:id="@+id/action_hitungFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_hitungFragment_to_pilihMejaFragment"
+            app:destination="@id/pilihMejaFragment"
+            app:popUpTo="@id/pilihMejaFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

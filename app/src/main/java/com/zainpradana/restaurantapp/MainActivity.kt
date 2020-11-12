@@ -4,8 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.zainpradana.restaurantapp.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -20,14 +21,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        //val navController = this.findNavController(R.id.myNavHostFragment)
+        /*
         binding.productSatu = productSatu
         binding.productDua = productDua
         binding.productTiga = productTiga
         binding.total = total
+         */
 
     }
 
-
+/*
     fun pesanMejaSatu(view: View) {
         pesan(1)
     }
@@ -140,4 +144,6 @@ class MainActivity : AppCompatActivity() {
             total = 0
         }
     }
+
+ */
 }
