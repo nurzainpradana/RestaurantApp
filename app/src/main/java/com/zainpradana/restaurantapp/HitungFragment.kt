@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.zainpradana.restaurantapp.databinding.FragmentHitungBinding
 
 class HitungFragment : Fragment() {
@@ -49,6 +50,17 @@ class HitungFragment : Fragment() {
                 llTotal.visibility = View.GONE
             } else {
                 llTotal.visibility = View.VISIBLE
+            }
+
+            btnBackToMenu.setOnClickListener {
+                view : View ->
+                //view.findNavController().navigate(HitungFragmentDirections.actionHitungFragmentToMenuFragment(args.nomorMeja))
+                view.findNavController().popBackStack()
+            }
+
+            btnBackToPilihMeja.setOnClickListener {
+                view : View ->
+                view.findNavController().navigate(HitungFragmentDirections.actionHitungFragmentToPilihMejaFragment())
             }
         }
         return binding.root

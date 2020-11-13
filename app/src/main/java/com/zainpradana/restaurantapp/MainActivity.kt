@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private val productDua : Product = Product()
     private val productTiga : Product = Product()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
