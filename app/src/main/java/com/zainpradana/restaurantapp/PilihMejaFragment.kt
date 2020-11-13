@@ -10,33 +10,33 @@ import androidx.navigation.findNavController
 import com.zainpradana.restaurantapp.databinding.FragmentPilihMejaBinding
 
 class PilihMejaFragment : Fragment() {
-
     private lateinit var binding: FragmentPilihMejaBinding
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pilih_meja, container, false)
-
         binding.btnMejaSatu.setOnClickListener {
             view : View ->
-            view.findNavController().navigate(PilihMejaFragmentDirections.actionPilihMejaFragmentToMenuFragment("Meja 1"))
+            view.findNavController().navigate(PilihMejaFragmentDirections
+                .actionPilihMejaFragmentToMenuFragment("Meja 1"))
         }
         binding.btnMejaDua.setOnClickListener {
             view : View ->
-            view.findNavController().navigate(PilihMejaFragmentDirections.actionPilihMejaFragmentToMenuFragment("Meja 2"))
+            view.findNavController().navigate(PilihMejaFragmentDirections
+                .actionPilihMejaFragmentToMenuFragment("Meja 2"))
         }
         binding.btnMejaTiga.setOnClickListener {
             view : View ->
-            view.findNavController().navigate(PilihMejaFragmentDirections.actionPilihMejaFragmentToMenuFragment("Meja 3"))
+            view.findNavController().navigate(PilihMejaFragmentDirections
+                .actionPilihMejaFragmentToMenuFragment("Meja 3"))
         }
         binding.btnMejaEmpat.setOnClickListener {
             view : View ->
-            view.findNavController().navigate(PilihMejaFragmentDirections.actionPilihMejaFragmentToMenuFragment("Meja 4"))
+            view.findNavController().navigate(PilihMejaFragmentDirections
+                .actionPilihMejaFragmentToMenuFragment("Meja 4"))
         }
-
         return binding.root
     }
 }

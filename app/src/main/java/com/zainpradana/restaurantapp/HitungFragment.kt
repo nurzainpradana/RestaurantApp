@@ -12,7 +12,6 @@ import com.zainpradana.restaurantapp.databinding.FragmentHitungBinding
 
 class HitungFragment : Fragment() {
     private lateinit var binding: FragmentHitungBinding
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,7 +26,6 @@ class HitungFragment : Fragment() {
             productTiga = args.product3
             total = args.total
             nomorMeja = args.nomorMeja
-
             if (args.product1.namaMenu == ""){
                 llMenuSatu.visibility = View.GONE
             } else {

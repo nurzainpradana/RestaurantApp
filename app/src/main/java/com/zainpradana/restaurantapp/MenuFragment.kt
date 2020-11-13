@@ -10,13 +10,11 @@ import androidx.navigation.findNavController
 import com.zainpradana.restaurantapp.databinding.FragmentMenuBinding
 
 class MenuFragment : Fragment() {
-
     private lateinit var binding: FragmentMenuBinding
     lateinit var productSatu: Product
     lateinit var productDua: Product
     lateinit var productTiga: Product
     private var total = 0
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,25 +24,20 @@ class MenuFragment : Fragment() {
         binding.apply {
             val args = MenuFragmentArgs.fromBundle(requireArguments())
             nomorMeja = args.nomorMeja
-
             btnHitung.setOnClickListener { view : View ->
                 ambilData(binding)
                 view.findNavController().navigate(MenuFragmentDirections
                     .actionMenuFragmentToHitungFragment(productSatu, productDua, productTiga, args.nomorMeja, total))
-
             }
-
             binding
             return binding.root
         }
     }
-
     private fun ambilData(binding: FragmentMenuBinding) {
         total = 0
         productSatu = Product()
         productDua = Product()
         productTiga = Product()
-
         binding.apply {
             if (etNamaMenuSatu.text.toString() != "" && etJumlahMenuSatu.text.toString() != "" && etHargaMenuSatu.text.toString() != "" ) {
                 productSatu.namaMenu = etNamaMenuSatu.text.toString()
