@@ -29,9 +29,12 @@ class MenuFragment : Fragment() {
 
             btnHitung.setOnClickListener { view : View ->
                 ambilData(binding)
-                view.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToHitungFragment(productSatu, productDua, productTiga, args.nomorMeja, total))
+                view.findNavController().navigate(MenuFragmentDirections
+                    .actionMenuFragmentToHitungFragment(productSatu, productDua, productTiga, args.nomorMeja, total))
 
             }
+
+            binding
             return binding.root
         }
     }
